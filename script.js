@@ -99,18 +99,17 @@ function rendertable(){
                     tabledata.appendChild(form);
                     tablerow.appendChild(tabledata);
 
+                    let tablespan = document.createElement('span');
+                    tablespan.textContent = book[key];
+
                     toggle.addEventListener('click', ()=>{
                         event.preventDefault();
                         value = select.value;
                         book.toggle(value);
 
-                        let textspan = document.querySelector('#text');
-                        textspan.textContent = value;
+                        tablespan.textContent = value;
                     })
-                    let tablespan = document.createElement('span');
-                    tablespan.textContent = book[key];
-                    tablespan.setAttribute('id', 'text');
-
+        
                     tabledata.insertBefore(tablespan, form);
                     tablerow.appendChild(tabledata);
                 }
