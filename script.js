@@ -1,17 +1,21 @@
+class Book{
+
+    constructor(title, author, pages, readstatus){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readstatus = readstatus || 'No';
+    }
+
+    toggle(change) {
+        this.readstatus = change;
+        console.log('New fun ran');
+    }
+  }
+
 const myLibrary = JSON.parse(sessionStorage.getItem("myArray") || "[]").map(book =>
     Object.setPrototypeOf(book, Book.prototype)
   );
-
-function Book(title, author, pages, readstatus){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.readstatus = readstatus || 'No';
-}
-
-Book.prototype.toggle = function(change){
-    this.readstatus = change;
-}
 
 // this function sends data to the Book constructor to instantiate the book objects.
 // And push it onto myLibrary array with push() function.
@@ -185,5 +189,3 @@ if(booksubmit){
         window.location.href = "index.html";
     })
 }
-
-
