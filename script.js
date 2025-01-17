@@ -170,22 +170,27 @@ const booksubmit = document.querySelector(".booksubmit");
 
 if(booksubmit){
 
-    booksubmit.addEventListener('click', ()=>{
+    const form = document.getElementById('form');
 
+    
+
+    form.addEventListener('submit', (event) => {
         event.preventDefault();
+
         const titleinput = document.querySelector('#title');
         let title = titleinput.value;
-    
+        
         const authorinput = document.querySelector('#author');
         let author = authorinput.value;
-    
+        
         const pagesinput = document.querySelector('#pages');
         let pages = pagesinput.value;
-    
+        
         const readinput = document.querySelector('#read');
         let read = readinput.value;
-    
+
         addBookToLibrary(title, author, pages, read);
         window.location.href = "index.html";
-    })
+        console.log('it');
+    });  
 }
